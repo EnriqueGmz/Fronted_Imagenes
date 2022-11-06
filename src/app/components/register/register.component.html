@@ -1,6 +1,8 @@
 <div class="register">
     <form class="formulario" [formGroup]="registerForm" (ngSubmit)="submit()">
         <h1>Registro</h1>
+        <div *ngIf="submitted && success" class="success">Se ha registrado con éxito</div>
+        <div *ngIf="submitted && error" class="error">El usúario ya existe</div>
         <div class="form-nombre">
             <div class="etiqueta">
                 <label>Nombre</label>
@@ -60,4 +62,5 @@
             <button type="submit" class="submit" routerLink="/login">Login</button>
         </div>
     </form>
+
 </div>

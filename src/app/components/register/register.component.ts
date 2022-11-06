@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -28,6 +29,8 @@ export class RegisterComponent implements OnInit {
     /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
   submitted = false;
+  success = false;
+  error = false;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -78,9 +81,20 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.get('password')?.value,
         confirmPassword: this.registerForm.get('confirmPassword')?.value,
       };
-      this.userservice.register(JSON.stringify(body)).subscribe(() => {
-        this.router.navigate(['/login']);
-      });
+      this.userservice.register(JSON.stringify(body)).subscribe(
+        (respuesta: HttpResponse<any>) => {
+          if (respuesta.status === 201) {
+            console.log(respuesta);
+            this.success = true;
+          }
+        },
+        (respuesta: HttpResponse<any>) => {
+          if (respuesta.status === 400) {
+            console.log(respuesta);
+            this.error = true;
+          }
+        }
+      );
     }
   }
 
