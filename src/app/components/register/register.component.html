@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="register">
+    <form class="formulario">
+        <h1>Registro</h1>
+        <div class="form-nombre">
+            <div class="etiqueta">
+                <label>Nombre</label>
+            </div>
+            <input type="text" formControlName="username" class="username" placeholder="nombre">
+        </div>
+        <div class="form-apellido">
+            <div class="etiqueta-apellido">
+                <label>Apellido</label>
+            </div>
+            <input type="text" formControlName="surname" class="surname" placeholder="apellido">
+        </div>
+        <div class="form-email">
+            <div class="etiqueta-email">
+                <label>Email</label>
+            </div>
+            <input type="text" formControlName="email" class="email" placeholder="email">
+        </div>
+        <div class="form-password">
+            <div class="etiqueta-pass">
+                <label>Contraseña</label>
+            </div>
+            <input type="password" formControlName="password" class="password" (toglemask)="true"
+                placeholder="contraseña...">
+        </div>
+        <div class="form-confirmPassword">
+            <div class="etiqueta-confirmPass">
+                <label>Confirmar contraseña</label>
+            </div>
+            <input type="password" formControlName="confirmPassword" class="password" (toglemask)="true"
+                placeholder="confirmar contraseña...">
+        </div>
+        <div class="botones">
+            <button type="submit" class="submit">Register</button>
+            <button type="submit" class="submit" routerLink="/login">Login</button>
+        </div>
+    </form>
+</div>

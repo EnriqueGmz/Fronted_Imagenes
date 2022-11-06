@@ -1,0 +1,174 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.register {
+  display: block;
+  width: 25%;
+  margin: 90px auto;
+  border-radius: 5px;
+  background-color: #dbd6f2;
+  box-shadow: 13px 13px 20px #a89fd5, -13px -13px 20px #ffffff;
+}
+
+.register h1 {
+  display: flex;
+  margin-top: 0;
+  margin-left: 0;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  background-color: #665ab5;
+  color: #fff;
+  font-size: 12px;
+}
+
+.form-nombre {
+  display: block;
+  text-align: center;
+}
+
+.form-nombre .etiqueta {
+  display: flex;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+}
+
+.form-nombre input {
+  width: 90%;
+  height: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #665ab5;
+  outline: none;
+}
+
+.form-apellido {
+  text-align: center;
+}
+
+.form-apellido .etiqueta-apellido {
+  display: flex;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+}
+
+.form-apellido input {
+  width: 90%;
+  height: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #665ab5;
+  outline: none;
+}
+
+.form-email {
+  text-align: center;
+}
+
+.form-email .etiqueta-email {
+  display: flex;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+}
+
+.form-email input {
+  width: 90%;
+  height: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #665ab5;
+  outline: none;
+}
+
+.form-password {
+  text-align: center;
+}
+
+.form-password .etiqueta-pass {
+  display: flex;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+}
+
+.form-password input {
+  width: 90%;
+  height: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #665ab5;
+  outline: none;
+}
+
+.form-confirmPassword {
+  text-align: center;
+}
+
+.form-confirmPassword .etiqueta-confirmPass {
+  display: flex;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+}
+
+.form-confirmPassword input {
+  width: 90%;
+  height: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #665ab5;
+  outline: none;
+}
+.botones {
+  display: flex;
+}
+
+button {
+  margin: auto;
+  width: 25%;
+  height: 20px;
+  align-items: center;
+  background-color: #665ab5;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+button[type]:focus {
+  box-shadow: 0 1px 1px rgba(63, 28, 81, 0.472) inset,
+    0 0 8px rgba(82, 30, 124, 0.483);
+}
+
+input[type]:focus {
+  box-shadow: 0 1px 1px rgba(97, 38, 127, 0.472) inset,
+    0 0 8px rgba(91, 13, 111, 0.483);
+}
+
+::placeholder {
+  color: #59518d;
+  font-size: 9px;
+}
