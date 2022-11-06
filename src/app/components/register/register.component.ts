@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +25,9 @@ export class RegisterComponent implements OnInit {
   emailpattern =
     /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
-  constructor(private formbuilder: FormBuilder) {}
+  submitted = false;
+
+  constructor(private formbuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.formbuilder.group({
@@ -43,5 +47,26 @@ export class RegisterComponent implements OnInit {
       ],
       confirmPassword: ['', [Validators.required]],
     });
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.registerForm.controls;
+  }
+  submit() {
+    this.submitted = true;
+
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    if (this.registerForm.valid) {
+      const body = {
+        username: this.registerForm.get('username')?.value,
+        surname: this.registerForm.get('surname')?.value,
+        email: this.registerForm.get('email')?.value,
+        password: this.registerForm.get('password')?.value,
+        confirmPassword: this.registerForm.get('confirmPassword')?.value,
+      };
+    }
   }
 }

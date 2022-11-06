@@ -1,23 +1,33 @@
 <div class="register">
-    <form class="formulario" [formGroup]="registerForm">
+    <form class="formulario" [formGroup]="registerForm" (ngSubmit)="submit()">
         <h1>Registro</h1>
         <div class="form-nombre">
             <div class="etiqueta">
                 <label>Nombre</label>
             </div>
             <input type="text" formControlName="username" class="username" placeholder="nombre">
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+                <div *ngIf="f['username'].errors['required']">El nombre es obligatorio</div>
+            </div>
         </div>
         <div class="form-apellido">
             <div class="etiqueta-apellido">
                 <label>Apellido</label>
             </div>
             <input type="text" formControlName="surname" class="surname" placeholder="apellido">
+            <div *ngIf="submitted && f['surname'].errors" class="invalid-feedback">
+                <div *ngIf="f['surname'].errors['required']">El apellido es obligatorio</div>
+            </div>
         </div>
         <div class="form-email">
             <div class="etiqueta-email">
                 <label>Email</label>
             </div>
             <input type="text" formControlName="email" class="email" placeholder="email">
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
+                <div *ngIf="f['email'].errors['pattern']">Email invalido</div>
+            </div>
         </div>
         <div class="form-password">
             <div class="etiqueta-pass">
@@ -25,6 +35,10 @@
             </div>
             <input type="password" formControlName="password" class="password" (toglemask)="true"
                 placeholder="contraseña...">
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Debe ingresar una contraseña</div>
+                <div *ngIf="f['password'].errors['minlength']">La contraseña debe tener minimo 6 caracteres</div>
+            </div>
         </div>
         <div class="form-confirmPassword">
             <div class="etiqueta-confirmPass">
@@ -32,6 +46,11 @@
             </div>
             <input type="password" formControlName="confirmPassword" class="password" (toglemask)="true"
                 placeholder="confirmar contraseña...">
+            <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                <div *ngIf="f['confirmPassword'].errors['required']">Debe ingresar un password</div>
+                <div *ngIf="f['confirmPassword'].errors['matching']">La contraseña no coincide</div>
+                <!-- <div *ngIf="f['confirmPassword'].getError('matching')">La contraseña no coincide</div> Funciona -->
+            </div>
         </div>
         <div class="botones">
             <button type="submit" class="submit">Register</button>

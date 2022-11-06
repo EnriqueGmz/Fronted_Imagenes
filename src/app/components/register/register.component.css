@@ -172,3 +172,11 @@ input[type]:focus {
   color: #59518d;
   font-size: 9px;
 }
+
+div .invalid-feedback {
+  display: block;
+  font-size: 8px;
+  color: rgb(223, 69, 61);
+  text-align: left;
+  margin-left: 12px;
+}
