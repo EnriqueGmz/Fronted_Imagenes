@@ -77,4 +77,9 @@ export class RegisterComponent implements OnInit {
       });
     }
   }
+
+  onReset(): void {
+    this.submitted = false;
+    this.registerForm.reset();
+  }
 }
