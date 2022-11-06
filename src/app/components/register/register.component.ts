@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import Validation from 'src/app/utils/validtion';
 
 @Component({
   selector: 'app-register',
@@ -35,23 +36,28 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formbuilder.group({
-      username: ['', [Validators.required]],
-      surname: ['', [Validators.required]],
-      email: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern(this.emailpattern),
-        ]),
-        ,
-      ],
-      password: [
-        '',
-        Validators.compose([Validators.required, Validators.minLength(6)]),
-      ],
-      confirmPassword: ['', [Validators.required]],
-    });
+    this.registerForm = this.formbuilder.group(
+      {
+        username: ['', [Validators.required]],
+        surname: ['', [Validators.required]],
+        email: [
+          '',
+          Validators.compose([
+            Validators.required,
+            Validators.pattern(this.emailpattern),
+          ]),
+          ,
+        ],
+        password: [
+          '',
+          Validators.compose([Validators.required, Validators.minLength(6)]),
+        ],
+        confirmPassword: ['', [Validators.required]],
+      },
+      {
+        validators: [Validation.passwordCheck('password', 'confirmPassword')],
+      }
+    );
   }
 
   get f(): { [key: string]: AbstractControl } {
