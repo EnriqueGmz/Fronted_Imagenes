@@ -6,13 +6,13 @@ export default class Validation {
       const control = controls.get(password);
       const checkControl = controls.get(confirmPassword);
 
-      if (checkControl?.errors && !checkControl.errors['matching']) {
+      if (checkControl?.errors && !checkControl.errors['compare']) {
         return null;
       }
 
       if (control?.value !== checkControl?.value) {
-        controls.get(confirmPassword)?.setErrors({ matching: true });
-        return { matching: true };
+        controls.get(confirmPassword)?.setErrors({ compare: true });
+        return { compare: true };
       } else {
         return null;
       }

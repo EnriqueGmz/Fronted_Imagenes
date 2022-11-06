@@ -48,7 +48,7 @@
                 placeholder="confirmar contraseña...">
             <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
                 <div *ngIf="f['confirmPassword'].errors['required']">Debe ingresar un password</div>
-                <div *ngIf="f['confirmPassword'].errors['matching']">La contraseña no coincide</div>
+                <div *ngIf="f['confirmPassword'].errors['compare']">La contraseña no coincide</div>
                 <!-- <div *ngIf="f['confirmPassword'].getError('matching')">La contraseña no coincide</div> Funciona -->
             </div>
         </div>
